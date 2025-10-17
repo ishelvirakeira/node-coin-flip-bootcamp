@@ -4,7 +4,7 @@ const http = require('http');
 const fs = require('fs');
 const url = require('url');
 const figlet = require('figlet');
-const port = 8003;
+const port = process.env.PORT || 8003;//want to host the project on render
 
 const server = http.createServer((req, res) =>{
     const page=url.parse(req.url).pathname;
@@ -55,4 +55,5 @@ const server = http.createServer((req, res) =>{
 
 server.listen(port, () =>{
     console.log(`Server is running at ${port}`);
+
 });
